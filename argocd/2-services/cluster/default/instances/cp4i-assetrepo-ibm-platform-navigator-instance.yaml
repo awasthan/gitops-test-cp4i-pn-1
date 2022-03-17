@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cp4i-assetrepo-ibm-platform-navigator-instance
+spec:
+  destination:
+    namespace: cp4i-assetrepo
+    server: https://kubernetes.default.svc
+  project: 2-services
+  source:
+    path: >-
+      payload/2-services/namespace/cp4i-assetrepo/ibm-platform-navigator-instance
+    repoURL: https://github.com/awasthan/gitops-test-cp4i-pn-1
+    targetRevision: main
+    helm:
+      valueFiles:
+        - values.yaml
+        - values-default.yaml
+      releaseName: ibm-platform-navigator-instance
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  ignoreDifferences: []
