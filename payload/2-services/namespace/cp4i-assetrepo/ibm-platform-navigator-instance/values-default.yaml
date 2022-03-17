@@ -8,6 +8,6 @@
       "mqDashboard": true
       "replicas": 2
       "storage":
-        "class": "portworx-rwx-gp-sc"
+        "class": "ibmc-file-gold-gid"
       "version": "2021.4.1"
 
